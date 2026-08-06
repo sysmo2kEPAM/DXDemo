@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- DeployToOrgs --></label>
+    <name>DeployToOrgs__c</name>
+    <picklistValues>
+        <masterLabel>TestDev1</masterLabel>
+        <translation><!-- TestDev1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TestDev2</masterLabel>
+        <translation><!-- TestDev2 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TestProd1</masterLabel>
+        <translation><!-- TestProd1 --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>TestQA</masterLabel>
+        <translation><!-- TestQA --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

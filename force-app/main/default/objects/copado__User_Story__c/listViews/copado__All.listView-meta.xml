@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>copado__All</fullName>
+    <columns>NAME</columns>
+    <columns>copado__User_Story_Title__c</columns>
+    <columns>AssignedTo__c</columns>
+    <columns>copado__Status__c</columns>
+    <columns>copado__Project__c</columns>
+    <columns>copado__Sprint__c</columns>
+    <columns>copado__Release__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>copado__Status__c</field>
+        <operation>equals</operation>
+        <value>Ready for QA,QA in Progress</value>
+    </filters>
+    <filters>
+        <field>copado__Release__c</field>
+        <operation>equals</operation>
+        <value>VCE QSS 2.2</value>
+    </filters>
+    <label>Ready for QA_VCE QSS 2.2</label>
+</ListView>

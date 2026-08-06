@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_for_USB_v2</fullName>
+    <active>true</active>
+    <errorConditionFormula>and
+(
+ PRIORVALUE(copado__Org_Credential__c) = &quot;a0m4K000000FHURQA4&quot;,
+copado__Org_Credential__r.Name = &quot;CopSIT-CI&quot;,
+ not(copado__Is_Bundle__c )
+)</errorConditionFormula>
+    <errorMessage>You cannot Promote User Stories to SIT - You need to create a User Story Bundle and Promote that</errorMessage>
+</ValidationRule>

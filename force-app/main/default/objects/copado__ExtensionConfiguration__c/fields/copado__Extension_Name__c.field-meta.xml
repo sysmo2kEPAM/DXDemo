@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>copado__Extension_Name__c</fullName>
+    <deprecated>false</deprecated>
+    <inlineHelpText>Select the name of the CMDT Extension for which you are creating the record.</inlineHelpText>
+    <label>Extension Name</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>false</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>CRT</fullName>
+                <default>false</default>
+                <label>CRT</label>
+            </value>
+            <value>
+                <fullName>Apex Tests</fullName>
+                <default>false</default>
+                <label>Apex Tests</label>
+            </value>
+            <value>
+                <fullName>PMD</fullName>
+                <default>false</default>
+                <label>PMD</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

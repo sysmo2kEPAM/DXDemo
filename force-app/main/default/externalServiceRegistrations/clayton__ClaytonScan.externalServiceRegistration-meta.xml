@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>ClaytonScan</label>
+    <namedCredential>Clayton</namedCredential>
+    <operations>
+        <active>true</active>
+        <name>getpolicies</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getpolicy</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>getscan</name>
+    </operations>
+    <operations>
+        <active>true</active>
+        <name>scanbybranch</name>
+    </operations>
+    <registrationProviderType>Custom</registrationProviderType>
+    <schema>{
+  &quot;swagger&quot;: &quot;2.0&quot;,
+  &quot;info&quot;: {
+    &quot;description&quot;: &quot;Api Documentation&quot;,
+    &quot;version&quot;: &quot;1.0&quot;,
+    &quot;title&quot;: &quot;Api Documentation&quot;,
+    &quot;termsOfService&quot;: &quot;urn:tos&quot;,
+    &quot;contact&quot;: {},
+    &quot;license&quot;: {
+      &quot;name&quot;: &quot;Apache 2.0&quot;,
+      &quot;url&quot;: &quot;http://www.apache.org/licenses/LICENSE-2.0&quot;
+    }
+  },
+  &quot;schemes&quot;: [
+    &quot;https&quot;
+  ],
+  &quot;paths&quot;: {
+    &quot;/api/workspaces/{account}/projects/{project}/scans/by_branch&quot;: {
+      &quot;post&quot;: {
+        &quot;summary&quot;: &quot;scanByBranch&quot;,
+        &quot;operationId&quot;: &quot;scanByBranch&quot;,
+        &quot;consumes&quot;: [
+          &quot;application/json&quot;
+        ],
+        &quot;produces&quot;: [
+          &quot;application/json&quot;
+        ],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;account&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;account&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;in&quot;: &quot;body&quot;,
+            &quot;name&quot;: &quot;form&quot;,
+            &quot;description&quot;: &quot;form&quot;,
+            &quot;required&quot;: true,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/ScanByBranchForm&quot;
+            }
+          },
+          {
+            &quot;name&quot;: &quot;project&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;project&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;OK&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/ScanResource&quot;
+            }
+          },
+          &quot;201&quot;: {
+            &quot;description&quot;: &quot;Created&quot;
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;Unauthorized&quot;
+          },
+          &quot;403&quot;: {
+            &quot;description&quot;: &quot;Forbidden&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Not Found&quot;
+          }
+        }
+      }
+    },
+    &quot;/api/workspaces/{account}/projects/{project}/scans/{scan}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;scan-controller&quot;
+        ],
+        &quot;summary&quot;: &quot;getScan&quot;,
+        &quot;operationId&quot;: &quot;getScan&quot;,
+        &quot;produces&quot;: [
+          &quot;application/json&quot;
+        ],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;account&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;account&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;name&quot;: &quot;project&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;project&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;name&quot;: &quot;scan&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;scan&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;OK&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/ScanResource&quot;
+            }
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;Unauthorized&quot;
+          },
+          &quot;403&quot;: {
+            &quot;description&quot;: &quot;Forbidden&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Not Found&quot;
+          }
+        }
+      }
+    },
+    &quot;/api/workspaces/{account}/projects/{project}/scans/{scan}/policies&quot;: {
+      &quot;get&quot;: {
+        &quot;description&quot;: &quot;Get filtered and ordered paginated list of scan policies&quot;,
+        &quot;summary&quot;: &quot;getPolicies&quot;,
+        &quot;tags&quot;: [
+          &quot;scan-policy-controller&quot;
+        ],
+        &quot;operationId&quot;: &quot;getPolicies&quot;,
+        &quot;deprecated&quot;: false,
+        &quot;produces&quot;: [
+          &quot;application/json&quot;
+        ],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;account&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;&quot;
+          },
+          {
+            &quot;name&quot;: &quot;project&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;&quot;
+          },
+          {
+            &quot;name&quot;: &quot;scan&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;&quot;
+          },
+          {
+            &quot;name&quot;: &quot;search&quot;,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;required&quot;: false,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;Filters list by given search string. We perform an insensitive LIKE operation over: policy name, policy description&quot;
+          },
+          {
+            &quot;name&quot;: &quot;pageable&quot;,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;description&quot;: &quot;&quot;
+          },
+          {
+            &quot;name&quot;: &quot;page&quot;,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;required&quot;: false,
+            &quot;default&quot;: 0,
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;format&quot;: &quot;int32&quot;,
+            &quot;description&quot;: &quot;Zero-based page index (0..N)&quot;
+          },
+          {
+            &quot;name&quot;: &quot;size&quot;,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;required&quot;: false,
+            &quot;default&quot;: 20,
+            &quot;type&quot;: &quot;integer&quot;,
+            &quot;format&quot;: &quot;int32&quot;,
+            &quot;description&quot;: &quot;The size of the page to be returned&quot;
+          },
+          {
+            &quot;name&quot;: &quot;sort&quot;,
+            &quot;in&quot;: &quot;query&quot;,
+            &quot;required&quot;: false,
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;description&quot;: &quot;Sorting criteria in the format: property(,asc|desc). Default sort order is ascending. Multiple sort criteria are supported.&quot;
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;405&quot;: {
+            &quot;description&quot;: &quot;Method Not Allowed&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/Error&quot;
+            },
+            &quot;headers&quot;: {}
+          },
+          &quot;403&quot;: {
+            &quot;description&quot;: &quot;Forbidden&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/Error&quot;
+            },
+            &quot;headers&quot;: {}
+          },
+          &quot;429&quot;: {
+            &quot;description&quot;: &quot;Too Many Requests&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/Error&quot;
+            },
+            &quot;headers&quot;: {}
+          },
+          &quot;402&quot;: {
+            &quot;description&quot;: &quot;Payment Required&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/Error&quot;
+            },
+            &quot;headers&quot;: {}
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;Unauthorized&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/Error&quot;
+            },
+            &quot;headers&quot;: {}
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;Bad Request&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/Error&quot;
+            },
+            &quot;headers&quot;: {}
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;Internal Server Error&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/Error&quot;
+            },
+            &quot;headers&quot;: {}
+          },
+          &quot;503&quot;: {
+            &quot;description&quot;: &quot;Service Unavailable&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/Error&quot;
+            },
+            &quot;headers&quot;: {}
+          },
+          &quot;406&quot;: {
+            &quot;description&quot;: &quot;Not Acceptable&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/Error&quot;
+            },
+            &quot;headers&quot;: {}
+          },
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;OK&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/PageScanPolicy&quot;
+            },
+            &quot;headers&quot;: {}
+          }
+        }
+      }
+    },
+    &quot;/api/workspaces/{account}/projects/{project}/scans/{scan}/policies/{policyId}&quot;: {
+      &quot;get&quot;: {
+        &quot;tags&quot;: [
+          &quot;scan-policy-controller&quot;
+        ],
+        &quot;summary&quot;: &quot;getPolicy&quot;,
+        &quot;operationId&quot;: &quot;getPolicy&quot;,
+        &quot;produces&quot;: [
+          &quot;application/json&quot;
+        ],
+        &quot;parameters&quot;: [
+          {
+            &quot;name&quot;: &quot;account&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;account&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;name&quot;: &quot;policyId&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;policyId&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;name&quot;: &quot;project&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;project&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;name&quot;: &quot;scan&quot;,
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;description&quot;: &quot;scan&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;OK&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/ScanPolicyResource&quot;
+            }
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;Unauthorized&quot;
+          },
+          &quot;403&quot;: {
+            &quot;description&quot;: &quot;Forbidden&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;Not Found&quot;
+          }
+        }
+      }
+    }
+  },
+  &quot;definitions&quot;: {
+    &quot;PolicyDefinitionResource&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;description&quot;,
+        &quot;id&quot;,
+        &quot;is_official&quot;,
+        &quot;name&quot;,
+        &quot;status&quot;,
+        &quot;visibility&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;description&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;format&quot;: &quot;uuid&quot;
+        },
+        &quot;is_official&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;name&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;status&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;visibility&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;PolicyMetricsResource&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;defect_density&quot;,
+        &quot;remediation_effort&quot;,
+        &quot;score&quot;,
+        &quot;violation_count&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;defect_density&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;format&quot;: &quot;double&quot;
+        },
+        &quot;remediation_effort&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;format&quot;: &quot;double&quot;
+        },
+        &quot;score&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int32&quot;
+        },
+        &quot;violation_count&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        }
+      }
+    },
+    &quot;RevisionResource&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;author&quot;,
+        &quot;avatar&quot;,
+        &quot;comment&quot;,
+        &quot;committer&quot;,
+        &quot;date_committed&quot;,
+        &quot;date_committed_description&quot;,
+        &quot;date_committed_raw&quot;,
+        &quot;id&quot;,
+        &quot;is_scanned&quot;,
+        &quot;sha&quot;,
+        &quot;short_sha&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;author&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;avatar&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;comment&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;committer&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_committed&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_committed_description&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_committed_raw&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        },
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;format&quot;: &quot;uuid&quot;
+        },
+        &quot;is_scanned&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;last_scan&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/ScanResourceLite&quot;
+        },
+        &quot;sha&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;short_sha&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;ScanByBranchForm&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;branch&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;stealth_mode&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;type&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;AUTO&quot;,
+            &quot;FULL&quot;,
+            &quot;QUICK&quot;
+          ]
+        }
+      }
+    },
+    &quot;ScanMetricsResource&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;accumulation_rate&quot;,
+        &quot;capacity_leakage&quot;,
+        &quot;code_to_config_ratio&quot;,
+        &quot;defect_density&quot;,
+        &quot;lines_of_code&quot;,
+        &quot;remediation_effort&quot;,
+        &quot;score&quot;,
+        &quot;violation_count&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;accumulation_rate&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;format&quot;: &quot;double&quot;
+        },
+        &quot;capacity_leakage&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;format&quot;: &quot;double&quot;
+        },
+        &quot;code_to_config_ratio&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;format&quot;: &quot;double&quot;
+        },
+        &quot;defect_density&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;format&quot;: &quot;double&quot;
+        },
+        &quot;lines_of_code&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        },
+        &quot;remediation_effort&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;format&quot;: &quot;double&quot;
+        },
+        &quot;score&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int32&quot;
+        },
+        &quot;violation_count&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        }
+      }
+    },
+    &quot;PageScanPolicy&quot;: {
+      &quot;title&quot;: &quot;PageScanPolicy&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;total_pages&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int32&quot;
+        },
+        &quot;total_elements&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        },
+        &quot;pageable&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/PageableObject&quot;
+        },
+        &quot;sort&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/Sort&quot;
+        },
+        &quot;first&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;last&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;number&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int32&quot;
+        },
+        &quot;number_of_elements&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int32&quot;
+        },
+        &quot;size&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int32&quot;
+        },
+        &quot;content&quot;: {
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/ScanPolicyResource&quot;
+          }
+        },
+        &quot;empty&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        }
+      }
+    },
+    &quot;PageableObject&quot;: {
+      &quot;title&quot;: &quot;PageableObject&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;page_number&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int32&quot;
+        },
+        &quot;page_size&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int32&quot;
+        },
+        &quot;sort&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/Sort&quot;
+        },
+        &quot;paged&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;unpaged&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;offset&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        }
+      }
+    },
+    &quot;Sort&quot;: {
+      &quot;title&quot;: &quot;Sort&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;sorted&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;unsorted&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;empty&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        }
+      }
+    },
+    &quot;ScanPolicyResource&quot;: {
+      &quot;title&quot;: &quot;ScanPolicy&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;format&quot;: &quot;uuid&quot;
+        },
+        &quot;title&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;html_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;definition&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/PolicyDefinitionResource&quot;
+        },
+        &quot;metrics&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/ScanMetricsResource&quot;
+        },
+        &quot;result&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/Result&quot;
+        },
+        &quot;status_check&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/StatusCheck&quot;
+        },
+        &quot;sarif_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;rules&quot;: {
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/ScanPolicyRuleLite&quot;
+          },
+          &quot;uniqueItems&quot;: true
+        }
+      }
+    },
+    &quot;ScanPolicyRuleLite&quot;: {
+      &quot;title&quot;: &quot;ScanPolicyRuleLite&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;format&quot;: &quot;uuid&quot;
+        },
+        &quot;rule_name&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;result&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/Result&quot;
+        },
+        &quot;status_check&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/StatusCheck&quot;
+        },
+        &quot;sarif_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;ScanPolicyResourceLite&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;html_url&quot;,
+        &quot;id&quot;,
+        &quot;problems&quot;,
+        &quot;remediation_effort&quot;,
+        &quot;result&quot;,
+        &quot;score&quot;,
+        &quot;status_check&quot;,
+        &quot;title&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;html_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;format&quot;: &quot;uuid&quot;
+        },
+        &quot;problems&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        },
+        &quot;remediation_effort&quot;: {
+          &quot;type&quot;: &quot;number&quot;,
+          &quot;format&quot;: &quot;double&quot;
+        },
+        &quot;result&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;NOT_PASSED&quot;,
+            &quot;PASSED&quot;,
+            &quot;PASSED_WITH_WARNINGS&quot;
+          ]
+        },
+        &quot;sarif_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;score&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int32&quot;
+        },
+        &quot;status_check&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;ERROR&quot;,
+            &quot;NOT_PASSED&quot;,
+            &quot;PASSED&quot;,
+            &quot;PENDING&quot;
+          ]
+        },
+        &quot;title&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      }
+    },
+    &quot;ScanResource&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;enqueued_date&quot;,
+        &quot;html_url&quot;,
+        &quot;id&quot;,
+        &quot;revision&quot;,
+        &quot;status&quot;,
+        &quot;status_check&quot;,
+        &quot;triggering_event&quot;,
+        &quot;type&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;completed_date&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;default_scan_policy_id&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;enqueued_date&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;html_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;metrics&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/ScanMetricsResource&quot;
+        },
+        &quot;obsolete&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;problems&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        },
+        &quot;result&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;NOT_PASSED&quot;,
+            &quot;PASSED&quot;,
+            &quot;PASSED_WITH_WARNINGS&quot;
+          ]
+        },
+        &quot;revision&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/RevisionResource&quot;
+        },
+        &quot;sarif_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;scan_policies&quot;: {
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/ScanPolicyResourceLite&quot;
+          }
+        },
+        &quot;stats&quot;: {
+          &quot;$ref&quot;: &quot;#/definitions/ScanStats&quot;
+        },
+        &quot;status&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;ERROR&quot;,
+            &quot;PROCESSING&quot;,
+            &quot;QUEUED&quot;,
+            &quot;READY&quot;
+          ]
+        },
+        &quot;status_check&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;ERROR&quot;,
+            &quot;NOT_PASSED&quot;,
+            &quot;PASSED&quot;,
+            &quot;PENDING&quot;
+          ]
+        },
+        &quot;triggering_event&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;BASELINE&quot;,
+            &quot;MANUAL&quot;,
+            &quot;MERGE&quot;,
+            &quot;MIGRATION&quot;,
+            &quot;PR_TRACKED&quot;,
+            &quot;SCHEDULED&quot;,
+            &quot;WEBHOOK&quot;
+          ]
+        },
+        &quot;type&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;AUTO&quot;,
+            &quot;FULL&quot;,
+            &quot;QUICK&quot;
+          ]
+        },
+        &quot;visibility&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;ACCESSIBLE&quot;,
+            &quot;DEMO&quot;,
+            &quot;HARD_LOCK&quot;,
+            &quot;PAY_PER_SCAN&quot;
+          ]
+        }
+      }
+    },
+    &quot;ScanResourceLite&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;required&quot;: [
+        &quot;html_url&quot;,
+        &quot;id&quot;,
+        &quot;obsolete&quot;,
+        &quot;status&quot;,
+        &quot;status_check&quot;
+      ],
+      &quot;properties&quot;: {
+        &quot;global_scan_result_message&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;html_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;id&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;format&quot;: &quot;uuid&quot;
+        },
+        &quot;obsolete&quot;: {
+          &quot;type&quot;: &quot;boolean&quot;
+        },
+        &quot;problems&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        },
+        &quot;result&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;NOT_PASSED&quot;,
+            &quot;PASSED&quot;,
+            &quot;PASSED_WITH_WARNINGS&quot;
+          ]
+        },
+        &quot;scan_policies&quot;: {
+          &quot;type&quot;: &quot;array&quot;,
+          &quot;items&quot;: {
+            &quot;$ref&quot;: &quot;#/definitions/ScanPolicyResourceLite&quot;
+          }
+        },
+        &quot;score&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int32&quot;
+        },
+        &quot;status&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;ERROR&quot;,
+            &quot;PROCESSING&quot;,
+            &quot;QUEUED&quot;,
+            &quot;READY&quot;
+          ]
+        },
+        &quot;status_check&quot;: {
+          &quot;type&quot;: &quot;string&quot;,
+          &quot;enum&quot;: [
+            &quot;ERROR&quot;,
+            &quot;NOT_PASSED&quot;,
+            &quot;PASSED&quot;,
+            &quot;PENDING&quot;
+          ]
+        }
+      }
+    },
+    &quot;Error&quot;: {
+      &quot;title&quot;: &quot;Error&quot;,
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;message&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;attributes&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;additionalProperties&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          }
+        }
+      }
+    },
+    &quot;Result&quot;: {
+      &quot;title&quot;: &quot;Result&quot;,
+      &quot;example&quot;: &quot;PASSED&quot;,
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;enum&quot;: [
+        &quot;PASSED&quot;,
+        &quot;PASSED_WITH_WARNINGS&quot;,
+        &quot;NOT_PASSED&quot;
+      ]
+    },
+    &quot;StatusCheck&quot;: {
+      &quot;title&quot;: &quot;StatusCheck&quot;,
+      &quot;example&quot;: &quot;PENDING&quot;,
+      &quot;type&quot;: &quot;string&quot;,
+      &quot;enum&quot;: [
+        &quot;PENDING&quot;,
+        &quot;PASSED&quot;,
+        &quot;NOT_PASSED&quot;,
+        &quot;ERROR&quot;
+      ]
+    },
+    &quot;ScanStats&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;properties&quot;: {
+        &quot;elapsed_time&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        },
+        &quot;lines_per_second&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        },
+        &quot;time_to_result&quot;: {
+          &quot;type&quot;: &quot;integer&quot;,
+          &quot;format&quot;: &quot;int64&quot;
+        }
+      }
+    }
+  }
+}</schema>
+    <schemaType>OpenApi</schemaType>
+    <serviceBinding>{&quot;host&quot;:null,&quot;basePath&quot;:null,&quot;allowedSchemes&quot;:[&quot;HTTPS&quot;],&quot;requestMediaTypes&quot;:[],&quot;responseMediaTypes&quot;:[],&quot;compatibleMediaTypes&quot;:{},&quot;integrationFlags&quot;:null,&quot;extensions&quot;:{}}</serviceBinding>
+    <status>Complete</status>
+    <systemVersion>2</systemVersion>
+</ExternalServiceRegistration>

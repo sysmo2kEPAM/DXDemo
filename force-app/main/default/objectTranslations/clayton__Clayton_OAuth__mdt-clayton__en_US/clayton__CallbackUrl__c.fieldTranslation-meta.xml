@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>
+        <!-- OAuth2 Callback URL. 
+By default set to https://{ORG}/services/authcallback/{PROVIDER_NAME} -->
+    </help>
+    <label><!-- Callback Endpoint URL --></label>
+    <name>clayton__CallbackUrl__c</name>
+</CustomFieldTranslation>

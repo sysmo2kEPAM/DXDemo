@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>CRT</fullName>
+        <default>false</default>
+        <label>CRT</label>
+    </customValue>
+    <customValue>
+        <fullName>ApexTest</fullName>
+        <default>false</default>
+        <label>ApexTest</label>
+    </customValue>
+    <customValue>
+        <fullName>Copado Robotic Testing</fullName>
+        <default>false</default>
+        <label>Copado Robotic Testing</label>
+    </customValue>
+    <customValue>
+        <fullName>BackPromotionChecker</fullName>
+        <default>false</default>
+        <label>BackPromotionChecker</label>
+    </customValue>
+    <customValue>
+        <fullName>Apex Tests</fullName>
+        <default>false</default>
+        <label>Apex Tests</label>
+    </customValue>
+    <masterLabel>Copado Test Tool</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Trigger Automatic Scans --></label>
+    <name>clayton__Trigger_Automatic_Scans__c</name>
+</CustomFieldTranslation>

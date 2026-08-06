@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label><!-- Function --></label>
+    <name>PDRI__Function__c</name>
+    <picklistValues>
+        <masterLabel>amend</masterLabel>
+        <translation><!-- amend --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>calculate</masterLabel>
+        <translation><!-- calculate --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>contract</masterLabel>
+        <translation><!-- contract --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>renew</masterLabel>
+        <translation><!-- renew --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

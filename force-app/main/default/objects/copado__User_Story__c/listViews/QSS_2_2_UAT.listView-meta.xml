@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QSS_2_2_UAT</fullName>
+    <columns>NAME</columns>
+    <columns>copado__User_Story_Title__c</columns>
+    <columns>AssignedTo__c</columns>
+    <columns>copado__Status__c</columns>
+    <columns>copado__Environment__c</columns>
+    <columns>copado__Promote_Change__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <columns>copado__Epic__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>copado__Environment__c</field>
+        <operation>equals</operation>
+        <value>VolvoUAT</value>
+    </filters>
+    <filters>
+        <field>copado__Status__c</field>
+        <operation>notEqual</operation>
+        <value>Cancelled</value>
+    </filters>
+    <filters>
+        <field>copado__Project__c</field>
+        <operation>equals</operation>
+        <value>VolvoQSS</value>
+    </filters>
+    <label>QSS 2.2 UAT</label>
+</ListView>

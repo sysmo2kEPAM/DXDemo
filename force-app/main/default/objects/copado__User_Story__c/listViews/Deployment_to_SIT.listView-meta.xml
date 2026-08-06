@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Deployment_to_SIT</fullName>
+    <columns>NAME</columns>
+    <columns>copado__User_Story_Title__c</columns>
+    <columns>copado__Status__c</columns>
+    <columns>AssignedTo__c</columns>
+    <columns>AzureID__c</columns>
+    <columns>copado__Team__c</columns>
+    <columns>copado__Release__c</columns>
+    <columns>copado__Sprint__c</columns>
+    <columns>copado__Promote_Change__c</columns>
+    <columns>copado__Developer__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>copado__Environment__c</field>
+        <operation>equals</operation>
+        <value>VolvoQSSVCEQA</value>
+    </filters>
+    <filters>
+        <field>copado__Status__c</field>
+        <operation>notEqual</operation>
+        <value>QA Failed,Cancelled</value>
+    </filters>
+    <filters>
+        <field>copado__Promote_Change__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>Deployment to SIT</label>
+    <sharedTo>
+        <group>VolvoDeploytoSIT</group>
+    </sharedTo>
+</ListView>

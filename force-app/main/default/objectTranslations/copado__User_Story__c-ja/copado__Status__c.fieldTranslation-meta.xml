@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <help>ユーザーストーリー実装の現在のステータス</help>
+    <label><!-- Status --></label>
+    <name>copado__Status__c</name>
+    <picklistValues>
+        <masterLabel>Approved</masterLabel>
+        <translation>承認済み</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Cancelled</masterLabel>
+        <translation>キャンセル済</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Committed</masterLabel>
+        <translation><!-- Committed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Define</masterLabel>
+        <translation><!-- Define --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Defined</masterLabel>
+        <translation><!-- Defined --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Design Approved</masterLabel>
+        <translation><!-- Design Approved --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Dev Complete</masterLabel>
+        <translation><!-- Dev Complete --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Done</masterLabel>
+        <translation><!-- Done --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>In Progress</masterLabel>
+        <translation>進行中</translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>New</masterLabel>
+        <translation><!-- New --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>QA Failed</masterLabel>
+        <translation><!-- QA Failed --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>QA in Progress</masterLabel>
+        <translation><!-- QA in Progress --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ready</masterLabel>
+        <translation><!-- Ready --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ready for QA</masterLabel>
+        <translation><!-- Ready for QA --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ready for Review</masterLabel>
+        <translation><!-- Ready for Review --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Ready for Staging</masterLabel>
+        <translation><!-- Ready for Staging --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Refine</masterLabel>
+        <translation><!-- Refine --></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>To Define</masterLabel>
+        <translation><!-- To Define --></translation>
+    </picklistValues>
+</CustomFieldTranslation>

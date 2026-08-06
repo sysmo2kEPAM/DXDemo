@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>copado__Status__c</fullName>
+    <deprecated>false</deprecated>
+    <description>Current status of the implementation of the User Story.</description>
+    <inlineHelpText>Current status of the implementation of the User Story.</inlineHelpText>
+    <label>Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Approved</fullName>
+                <default>true</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Committed</fullName>
+                <default>false</default>
+                <label>Committed</label>
+            </value>
+            <value>
+                <fullName>Ready for Review</fullName>
+                <default>false</default>
+                <label>Ready for Review</label>
+            </value>
+            <value>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+                <label>In Progress</label>
+            </value>
+            <value>
+                <fullName>Dev Complete</fullName>
+                <default>false</default>
+                <label>Dev Complete</label>
+            </value>
+            <value>
+                <fullName>Ready for QA</fullName>
+                <default>false</default>
+                <label>Ready for QA</label>
+            </value>
+            <value>
+                <fullName>QA in Progress</fullName>
+                <default>false</default>
+                <label>QA in Progress</label>
+            </value>
+            <value>
+                <fullName>Done</fullName>
+                <default>false</default>
+                <label>Done</label>
+            </value>
+            <value>
+                <fullName>QA Failed</fullName>
+                <default>false</default>
+                <label>QA Failed</label>
+            </value>
+            <value>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+                <label>Cancelled</label>
+            </value>
+            <value>
+                <fullName>New</fullName>
+                <default>false</default>
+                <label>New</label>
+            </value>
+            <value>
+                <fullName>To Define</fullName>
+                <default>false</default>
+                <label>To Define</label>
+            </value>
+            <value>
+                <fullName>Define</fullName>
+                <default>false</default>
+                <label>Define</label>
+            </value>
+            <value>
+                <fullName>Defined</fullName>
+                <default>false</default>
+                <label>Defined</label>
+            </value>
+            <value>
+                <fullName>Refine</fullName>
+                <default>false</default>
+                <label>Refine</label>
+            </value>
+            <value>
+                <fullName>Ready</fullName>
+                <default>false</default>
+                <label>Ready</label>
+            </value>
+            <value>
+                <fullName>Design Approved</fullName>
+                <default>false</default>
+                <label>Design Approved</label>
+            </value>
+            <value>
+                <fullName>Ready for Staging</fullName>
+                <default>false</default>
+                <label>Ready for Staging</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

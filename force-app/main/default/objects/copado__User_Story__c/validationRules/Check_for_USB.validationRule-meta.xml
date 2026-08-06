@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_for_USB</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND
+	(
+	  NOT(copado__Is_Bundle__c),
+	 
+	AND
+		(
+			PRIORVALUE(copado__Promote_and_Deploy__c) = false,
+			copado__Promote_and_Deploy__c = true
+		)
+	 ,
+
+		copado__Org_Credential__r.Name = &quot;CopQA-CI&quot;
+	)</errorConditionFormula>
+    <errorMessage>You can only deploy to UAT using a User Story Bundle</errorMessage>
+</ValidationRule>
