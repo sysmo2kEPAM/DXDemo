@@ -19,9 +19,9 @@ trigger TrgFood on Food__c (before insert,before update) {
            chips.add(myfood) ;
         }
     }
-    
+     
     FoodtrgHandler.calcPriceBurger(burgers);
     FoodtrgHandler.calcPricePizza(pizzas);
-    //FoodtrgHandler.calcPriceChips(chips);
+    FoodtrgHandler.calcPriceChips(chips);
 
 }

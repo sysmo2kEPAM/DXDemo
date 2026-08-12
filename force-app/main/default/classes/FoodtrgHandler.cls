@@ -9,4 +9,9 @@ public with sharing class FoodtrgHandler {
          	a.Total_Price__c = (a.Quantity__c * a.Price__c)*2;
     	}
     }
+    public static void calcPriceChips(List<Food__c> lstofzc){
+         for(Food__c a : lstofzc) {
+         	a.Total_Price__c = (a.Quantity__c * a.Price__c)*4;
+    	}
+    }
 }
