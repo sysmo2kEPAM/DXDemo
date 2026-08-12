@@ -1,5 +1,5 @@
 trigger TrgFood on Food__c (before insert,before update) {
-    
+    //
     List<Food__c> burgers = new List<Food__c>();
     List<Food__c> pizzas = new List<Food__c>();
     List<Food__c> chips = new List<Food__c>();
@@ -23,5 +23,5 @@ trigger TrgFood on Food__c (before insert,before update) {
     FoodtrgHandler.calcPriceBurger(burgers);
     FoodtrgHandler.calcPricePizza(pizzas);
     FoodtrgHandler.calcPriceChips(chips);
-
+ 
 }
