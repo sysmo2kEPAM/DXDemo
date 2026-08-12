@@ -1,0 +1,168 @@
+{
+    "fileVersion": 0,
+    "serverMaxRevisionCounter": 1452,
+    "sourceMembers": {
+        "Profile__Admin": {
+            "memberType": "Profile",
+            "serverRevisionCounter": 1451,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "Profile__Read Only": {
+            "memberType": "Profile",
+            "serverRevisionCounter": 12,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "Profile__ClaytonWebHooks Profile": {
+            "memberType": "Profile",
+            "serverRevisionCounter": 13,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "PermissionSet__sfdcInternalInt__sfdc_a360_sfcrm_data_extract": {
+            "memberType": "PermissionSet",
+            "serverRevisionCounter": 14,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "Layout__Integration_Endpoint__mdt-Integration Endpoint Layout": {
+            "memberType": "Layout",
+            "serverRevisionCounter": 25,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "Profile__Copado Only": {
+            "memberType": "Profile",
+            "serverRevisionCounter": 16,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "Profile__Prodly": {
+            "memberType": "Profile",
+            "serverRevisionCounter": 17,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "Profile__Salesforce API Only System Integrations": {
+            "memberType": "Profile",
+            "serverRevisionCounter": 18,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomObject__Integration_Endpoint__mdt": {
+            "memberType": "CustomObject",
+            "serverRevisionCounter": 19,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomField__Food__c.Lunch__c": {
+            "memberType": "CustomField",
+            "serverRevisionCounter": 1,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomField__Food__c.Price__c": {
+            "memberType": "CustomField",
+            "serverRevisionCounter": 2,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomField__Food__c.Quantity__c": {
+            "memberType": "CustomField",
+            "serverRevisionCounter": 3,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomField__Food__c.Total_Price__c": {
+            "memberType": "CustomField",
+            "serverRevisionCounter": 4,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomObject__Food__c": {
+            "memberType": "CustomObject",
+            "serverRevisionCounter": 5,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "ListView__Food__c.All": {
+            "memberType": "ListView",
+            "serverRevisionCounter": 6,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "Layout__Food__c-Food Layout": {
+            "memberType": "Layout",
+            "serverRevisionCounter": 7,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "FlexiPage__My_Foods": {
+            "memberType": "FlexiPage",
+            "serverRevisionCounter": 8,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomTab__Food__c": {
+            "memberType": "CustomTab",
+            "serverRevisionCounter": 9,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "PermissionSet__Food_PS": {
+            "memberType": "PermissionSet",
+            "serverRevisionCounter": 10,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomField__Integration_Endpoint__mdt.SAPEndpoint__c": {
+            "memberType": "CustomField",
+            "serverRevisionCounter": 22,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": true
+        },
+        "CustomField__Integration_Endpoint__mdt.SAP__c": {
+            "memberType": "CustomField",
+            "serverRevisionCounter": 24,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomMetadata__Integration_Endpoint.SAP": {
+            "memberType": "CustomMetadata",
+            "serverRevisionCounter": 26,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "DigitalExperienceBundle__fragment_space/DefaultWidgetSpace": {
+            "memberType": "DigitalExperienceBundle",
+            "serverRevisionCounter": 27,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "DigitalExperience__fragment_space/DefaultWidgetSpace.sfdc_cms__languageSettings/languages": {
+            "memberType": "DigitalExperience",
+            "serverRevisionCounter": 29,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "ApexTrigger__TrgFood": {
+            "memberType": "ApexTrigger",
+            "serverRevisionCounter": 1448,
+            "lastRetrievedFromServer": 1448,
+            "isNameObsolete": false
+        },
+        "ApexClass__FoodTest": {
+            "memberType": "ApexClass",
+            "serverRevisionCounter": 1450,
+            "lastRetrievedFromServer": 1450,
+            "isNameObsolete": false
+        },
+        "ApexClass__FoodtrgHandler": {
+            "memberType": "ApexClass",
+            "serverRevisionCounter": 1452,
+            "lastRetrievedFromServer": 1452,
+            "isNameObsolete": false
+        }
+    }
+}
