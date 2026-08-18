@@ -4,7 +4,7 @@
 
 # Salesforce cache
 .sfdx/
-.sf/
+
 # Logs
 logs
 *.log
@@ -29,7 +29,6 @@ $RECYCLE.BIN/
 
 # Copado
 /.sfdx
-.copado/
 copado_root
 /.vscode
 **config
@@ -39,4 +38,5 @@ force-app/main/default/lwc/.eslintrc.json
 force-app/main/default/lwc/jsconfig.json
 sfdx-project.json
 README.md
-manifest/package.xml
+.copado/CliConfiguration.json
+.sf/orgs/00DAd00000HO0EnMAL/maxRevision.json
