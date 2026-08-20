@@ -5,6 +5,7 @@
 # Salesforce cache
 .sfdx/
 .sf/
+
 # Logs
 logs
 *.log
@@ -39,3 +40,4 @@ force-app/main/default/lwc/.eslintrc.json
 force-app/main/default/lwc/jsconfig.json
 sfdx-project.json
 README.md
+manifest/package.xml
